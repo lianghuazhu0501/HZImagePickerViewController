@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HZPickerAlbumCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="204" height="177"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="204" height="177"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZW-Ur-KEU" userLabel="Big Image Button">
+                        <rect key="frame" x="0.0" y="0.0" width="204" height="177"/>
+                        <connections>
+                            <action selector="clickImageBackgroundButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="7K6-9a-UbA"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YMU-eV-GW8" userLabel="Big Image View">
+                        <rect key="frame" x="0.0" y="0.0" width="204" height="177"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaC-Uv-fAg" userLabel="Image Select Button">
+                        <rect key="frame" x="168" y="0.0" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="FuX-WX-WYH"/>
+                            <constraint firstAttribute="height" constant="36" id="hME-2J-F3q"/>
+                        </constraints>
+                        <connections>
+                            <action selector="clickSelectedButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="X4L-k9-Fu0"/>
+                        </connections>
+                    </button>
+                    <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGn-RO-vj7" userLabel="Other Info View">
+                        <rect key="frame" x="0.0" y="159" width="204" height="18"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2t-h1-wg5" userLabel="Flag Image Button">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="qUj-wg-swV"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxU-R8-Pa9" userLabel="Time Label">
+                                <rect key="frame" x="169" y="2" width="31" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gxU-R8-Pa9" firstAttribute="top" secondItem="yGn-RO-vj7" secondAttribute="top" constant="2" id="2TN-wj-pbt"/>
+                            <constraint firstItem="U2t-h1-wg5" firstAttribute="top" secondItem="yGn-RO-vj7" secondAttribute="top" id="LYk-jG-xAd"/>
+                            <constraint firstAttribute="height" constant="18" id="MVC-VX-iwc"/>
+                            <constraint firstItem="U2t-h1-wg5" firstAttribute="leading" secondItem="yGn-RO-vj7" secondAttribute="leading" id="dTN-ca-qkX"/>
+                            <constraint firstAttribute="bottom" secondItem="gxU-R8-Pa9" secondAttribute="bottom" constant="2" id="gDR-Qi-q5l"/>
+                            <constraint firstAttribute="trailing" secondItem="gxU-R8-Pa9" secondAttribute="trailing" constant="4" id="jX8-AL-jjd"/>
+                            <constraint firstAttribute="bottom" secondItem="U2t-h1-wg5" secondAttribute="bottom" id="qhV-cU-AD8"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="JaC-Uv-fAg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BgA-4n-vQA"/>
+                <constraint firstItem="yGn-RO-vj7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="D7u-xt-dPw"/>
+                <constraint firstAttribute="trailing" secondItem="YMU-eV-GW8" secondAttribute="trailing" id="HzY-vJ-4Lr"/>
+                <constraint firstItem="5ZW-Ur-KEU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IzR-3N-58Y"/>
+                <constraint firstItem="YMU-eV-GW8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mty-ee-9eA"/>
+                <constraint firstItem="YMU-eV-GW8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OPg-e1-AQY"/>
+                <constraint firstItem="5ZW-Ur-KEU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Uys-XK-A1U"/>
+                <constraint firstAttribute="bottom" secondItem="YMU-eV-GW8" secondAttribute="bottom" id="VG8-M3-Iyr"/>
+                <constraint firstAttribute="trailing" secondItem="JaC-Uv-fAg" secondAttribute="trailing" id="a13-VZ-Fd3"/>
+                <constraint firstAttribute="bottom" secondItem="yGn-RO-vj7" secondAttribute="bottom" id="e4m-1A-8LC"/>
+                <constraint firstAttribute="trailing" secondItem="yGn-RO-vj7" secondAttribute="trailing" id="eAo-Gm-uRl"/>
+                <constraint firstAttribute="bottom" secondItem="5ZW-Ur-KEU" secondAttribute="bottom" id="t0c-NL-BZb"/>
+                <constraint firstAttribute="trailing" secondItem="5ZW-Ur-KEU" secondAttribute="trailing" id="wca-y2-0ZI"/>
+            </constraints>
+            <size key="customSize" width="204" height="177"/>
+            <connections>
+                <outlet property="flagImageButton" destination="U2t-h1-wg5" id="VKB-sn-rhh"/>
+                <outlet property="otherInfoView" destination="yGn-RO-vj7" id="gWp-59-XWm"/>
+                <outlet property="selectedButton" destination="JaC-Uv-fAg" id="hki-Hb-m2h"/>
+                <outlet property="thumbnailImageButton" destination="5ZW-Ur-KEU" id="Oam-eK-sFK"/>
+                <outlet property="thumbnailImageView" destination="YMU-eV-GW8" id="Jg3-Ft-oYw"/>
+                <outlet property="timeLabel" destination="gxU-R8-Pa9" id="hAR-0s-D0a"/>
+            </connections>
+            <point key="canvasLocation" x="250" y="226.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

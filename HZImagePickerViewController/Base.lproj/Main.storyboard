@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iOQ-WI-K6f">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Index View Controller-->
+        <scene sceneID="V3L-a2-8Sb">
+            <objects>
+                <viewController id="iOQ-WI-K6f" customClass="IndexViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fKV-rg-SJO"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZFi-b7-h0d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zyJ-Es-HcC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07l-GC-Oxh" userLabel="Click  Button">
+                                <rect key="frame" x="260" y="50" width="81" height="30"/>
+                                <state key="normal" title="please click"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="iOQ-WI-K6f" eventType="touchUpInside" id="8Ee-wd-77z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="07l-GC-Oxh" firstAttribute="centerX" secondItem="zyJ-Es-HcC" secondAttribute="centerX" id="HTT-ry-2TQ"/>
+                            <constraint firstItem="07l-GC-Oxh" firstAttribute="top" secondItem="fKV-rg-SJO" secondAttribute="bottom" constant="30" id="sjR-DN-yp6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clickButton" destination="07l-GC-Oxh" id="LJR-em-LAK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7w-47-0gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="-605"/>
+        </scene>
+    </scenes>
+</document>

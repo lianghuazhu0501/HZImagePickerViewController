@@ -1,0 +1,23 @@
+/* 
+  HZPicker.strings
+  HZImagePickerViewController
+
+  Created by 梁华柱 on 16/7/13.
+  Copyright © 2016年 Robert Liang. All rights reserved.
+*/
+
+/* common */
+HZLetBackBarItemTitle="Back";
+
+/* HZPickerImageViewController */
+HZPickerViewControllerTitle = "Photos";
+HZPickerViewControllerRightBarItemTitle="Cancel";
+
+/* HZPickerAlbumController */
+HZPickerAlbumControllerPreviewButtonTitle = "Preview";
+HZPickerAlbumControllerEnterButtonTitle = "Enter";
+
+/* HZPreviewVideoViewController */
+HZPreviewVideoViewControllerTitle = "Preview Video";
+
+
