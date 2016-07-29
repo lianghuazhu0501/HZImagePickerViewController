@@ -23,7 +23,7 @@
     [super viewDidLoad];
 }
 
-#pragma mark - IBAction Click
+#pragma mark - IBAction
 -(void)clickButton:(id)sender{
     
     HZPickerNavigationController *navigationController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPickerNavigationController"];

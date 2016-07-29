@@ -41,6 +41,8 @@
     [NSLayoutConstraint addCenterXConstraintToView:self.loaddingActivityIndicatorView superView:self layoutRelation:NSLayoutRelationEqual constantValue:0];
     [NSLayoutConstraint addCenterYConstraintToView:self.loaddingActivityIndicatorView superView:self layoutRelation:NSLayoutRelationEqual constantValue:0];
     
+    
+    
 }
 
 -(void)setAsset:(PHAsset *)asset{
@@ -115,6 +117,7 @@
     
 }
 
+#pragma mark - UIGestureRecognizer
 - (void)singleTap:(UIGestureRecognizer *)gestureRecognizer{
     self.singleTapScrollViewBlock();
 }
@@ -129,6 +132,7 @@
     }
     
 }
+
 
 #pragma mark - 计算缩放参数
 - (void)updateZoomScaleWithGesture:(UIGestureRecognizer *)gestureRecognizer newScale:(CGFloat)newScale {
@@ -356,6 +360,10 @@
             imageInitializeY = (originalScreenHeight - imageInitializeHeight)*0.5f;
             imageInitializeX = (originalScreenWidth - imageInitializeWidth)*0.5f;
             
+        }
+        
+        if (imageInitializeX<0) {
+            imageInitializeX = 0;
         }
         
     }
