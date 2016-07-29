@@ -8,4 +8,4 @@ HZPickverImageViewController supports iOS 8.0+, only use ARC
  <br/>
 # Preview
 
-![](http://upload-images.jianshu.io/upload_images/1415620-c1740e35d88f5f38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/200)
+![](https://raw.githubusercontent.com/lianghuazhu0501/HZImagePickerViewController/master/HZImagePickerViewController/displayImage.png)
