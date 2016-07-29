@@ -76,7 +76,7 @@
         self.selectMediaDataFinishBlock(selectMediaArray);
         UIViewController *viewController = self.viewControllers.firstObject;
         [viewController dismissViewControllerAnimated:YES completion:nil];
-
+        
     }
     
 }
