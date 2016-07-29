@@ -9,3 +9,7 @@ HZPickverImageViewController supports iOS 8.0+, only use ARC
 # Preview
 
 ![](https://raw.githubusercontent.com/lianghuazhu0501/HZImagePickerViewController/master/HZImagePickerViewController/displayImage.png)
+
+# Video
+
+<iframe height=500 width=500 src="http://v.youku.com/v_show/id_XMTY2Mjk4OTc0OA==.html">
