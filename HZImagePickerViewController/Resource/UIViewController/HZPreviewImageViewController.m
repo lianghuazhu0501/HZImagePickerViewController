@@ -53,12 +53,7 @@
 @implementation HZPreviewImageViewController
 
 -(BOOL)prefersStatusBarHidden{
-    
-    if (self.is3DTouchFlag) {
-        return NO;
-    }else{
-        return YES;
-    }
+    return YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -84,8 +79,10 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -275,7 +272,7 @@
         [self.enterButton setTitleColor:kHZButtonEnableColor forState:UIControlStateNormal];
         [self.enterButton setTitleColor:kHZButtonHighlightColor forState:UIControlStateHighlighted];
     }else{
-        [self.enterButton setTitleColor:kHZButtonDisableColor forState:UIControlStateNormal];
+        [self.enterButton setTitleColor:kHZButtonDetailDisableColor forState:UIControlStateNormal];
     }
 
     [self.enterButton setTitle:[NSString stringWithFormat:@"%@(%ld)",NSLocalizedString(@"HZPickerAlbumControllerEnterButtonTitle", nil),self.albumViewModel.selectMediaDataArray.count] forState:UIControlStateNormal];

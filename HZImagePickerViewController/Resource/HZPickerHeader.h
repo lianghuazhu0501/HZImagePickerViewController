@@ -15,6 +15,7 @@
 
 #define kHZButtonEnableColor kHZRGBA(35, 120, 250, 1)
 #define kHZButtonDisableColor kHZRGBA(194, 194, 194, 1)
+#define kHZButtonDetailDisableColor kHZRGBA(154, 154, 154, 1)
 #define kHZButtonHighlightColor kHZRGBA(35, 120, 250, 0.3)
 
 #define kHZSelectMediaFinishNotification @"HZSelectMediaFinishNotification"

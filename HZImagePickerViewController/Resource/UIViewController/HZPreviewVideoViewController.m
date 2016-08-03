@@ -56,6 +56,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideoFinishNotification:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideoFinishNotification:) name:AVPlayerItemFailedToPlayToEndTimeNotification object:nil];
     
+    
+    
 }
 
 #pragma mark - ClickEvent
