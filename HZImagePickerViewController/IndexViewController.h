@@ -10,9 +10,6 @@
 
 @interface IndexViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *clickButton;
 
-
--(IBAction)clickButton:(id)sender;
 
 @end

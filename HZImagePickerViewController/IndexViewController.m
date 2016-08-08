@@ -14,6 +14,18 @@
 
 @interface IndexViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *cropImageButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *selectImageButton;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *showScrollView;
+
+@property (weak, nonatomic) IBOutlet UIButton *selectFinishCropButton;
+
+
+-(IBAction)clickSelectImageButton:(id)sender;
+
+-(IBAction)clickCropImageButton:(id)sender;
 
 @end
 
@@ -21,16 +33,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.cropImageButton setTitle:@"crop style" forState:UIControlStateNormal];
+    [self.selectImageButton setTitle:@"select  style" forState:UIControlStateNormal];
+    
 }
 
 #pragma mark - IBAction
--(void)clickButton:(id)sender{
+-(void)clickSelectImageButton:(id)sender{
+    
+    __weak typeof(self) weakSelf = self;
     
     HZPickerNavigationController *navigationController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPickerNavigationController"];
     navigationController.mediaType = PHAssetMediaTypeImage;
-    navigationController.maximumNumberOfSelection = 9;
     navigationController.imageStyle = HZPickerImageStyleFilmCameras;
     navigationController.previewingTouchEnable = YES;
+    navigationController.maximumNumberOfSelection = 8;
     navigationController.selectMediaDataFinishBlock = ^(NSArray *mediaArray){
         
         /*
@@ -45,8 +63,7 @@
          
          
          
-         
-          *if choose mediaType is PHAssetMediaTypeVideo , you can use the following code
+         *if choose mediaType is PHAssetMediaTypeVideo , you can use the following code
          
          *[[PHImageManager defaultManager] requestPlayerItemForVideo:<#(nonnull PHAsset *)#> options:<#(nullable PHVideoRequestOptions *)#> resultHandler:<#^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info)resultHandler#>]
          
@@ -56,11 +73,62 @@
          
          */
         
-        NSLog(@"user select finish     %@",mediaArray);
+        weakSelf.showScrollView.hidden = NO;
+        weakSelf.selectFinishCropButton.hidden = YES;
         
+        for (UIView *subView in weakSelf.showScrollView.subviews) {
+            [subView removeFromSuperview];
+        }
+        
+        CGFloat showImageViewX = 0;
+        CGFloat showImageViewY = 0;
+        CGFloat showImageViewWidth = weakSelf.showScrollView.frame.size.height;
+        CGFloat showImageViewHeight = showImageViewWidth;
+        
+        for (int i=0; i<mediaArray.count; i++) {
+            
+            showImageViewX = i*showImageViewWidth;
+            UIImageView *showImageView = [[UIImageView alloc] initWithFrame:CGRectMake(showImageViewX, showImageViewY, showImageViewWidth, showImageViewHeight)];
+            showImageView.clipsToBounds = YES;
+            showImageView.contentMode = UIViewContentModeScaleAspectFill;
+            [weakSelf.showScrollView addSubview:showImageView];
+            
+            [[PHImageManager defaultManager] requestImageForAsset:mediaArray[i] targetSize:CGSizeMake(200, 200) contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                showImageView.image = result;
+            }];
+            
+        }
+        
+        [weakSelf.showScrollView setContentSize:CGSizeMake(mediaArray.count*showImageViewWidth, showImageViewHeight)];
+        
+        NSLog(@"user select finish     %@",mediaArray);  
+    };
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+-(void)clickCropImageButton:(id)sender{
+
+    __weak typeof(self) weakSelf = self;
+    
+    HZPickerNavigationController *navigationController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPickerNavigationController"];
+    navigationController.mediaType = PHAssetMediaTypeImage;
+    navigationController.imageStyle = HZPickerImageStyleCropSingleImage;
+    navigationController.singleImageCropFinishBlock = ^(UIImage *cropImage,PHAsset *asset,CGRect cropRect){
+        
+        weakSelf.showScrollView.hidden = YES;
+        weakSelf.selectFinishCropButton.hidden = NO;
+        [weakSelf.selectFinishCropButton setBackgroundImage:cropImage forState:UIControlStateNormal];
         
     };
+    
     [self presentViewController:navigationController animated:YES completion:nil];
+    
+}
+
+-(void)clickButton:(id)sender{
+    
+    
     
 }
 

@@ -22,7 +22,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    if (self.imageStyle == HZPickerImageStyleFilmCameras && !_firstConfigFlag) {
+    if ((self.imageStyle == HZPickerImageStyleFilmCameras || self.imageStyle == HZPickerImageStyleCropSingleImage) && !_firstConfigFlag) {
         
         HZPickerAlbumController *pickerAlbumController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPickerAlbumController"];
         pickerAlbumController.albumEntity = [HZAlbumEntity filmCameras];
@@ -38,6 +38,7 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectMediaFinishNotification:) name:kHZSelectMediaFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(previewSingleImageViewControllerClickCropEnterNotification:) name:kHZPreviewSingleImageViewControllerClickCropEnterNotification object:nil];
     
 }
 
@@ -78,6 +79,33 @@
         [viewController dismissViewControllerAnimated:YES completion:nil];
         
     }
+    
+}
+
+-(void)previewSingleImageViewControllerClickCropEnterNotification:(NSNotification *)notification{
+    
+    __weak typeof(self) weakSelf = self;
+    NSArray *noticeArray = notification.object;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+        PHAsset *noticeAsset = noticeArray[1];
+        CGRect cropRect = [noticeArray[0] CGRectValue];
+        CGSize originalImageSize = CGSizeMake(noticeAsset.pixelWidth, noticeAsset.pixelHeight);
+        
+        [[PHImageManager defaultManager] requestImageForAsset:noticeAsset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            
+            if (CGSizeEqualToSize(result.size, originalImageSize)) {
+                strongSelf.singleImageCropFinishBlock([UIImage imageWithCGImage:CGImageCreateWithImageInRect([result CGImage], cropRect)],noticeAsset,cropRect);
+            }
+            
+            
+        }];
+        
+        
+    });
     
 }
 

@@ -19,3 +19,8 @@ HZPickerAlbumControllerEnterButtonTitle = "确定";
 
 /* HZPreviewVideoViewController */
 HZPreviewVideoViewControllerTitle = "预览视频";
+
+/* HZPreviewSingleImageViewController */
+HZPreviewSingleImageViewControllerEnterButtonTitle = "确定";
+HZPreviewSingleImageViewControllerCancelButtonTitle = "取消";
+

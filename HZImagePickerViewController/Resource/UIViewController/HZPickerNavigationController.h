@@ -12,6 +12,8 @@
 
 typedef void(^HZSelectMediaDataFinishBlock)(NSArray *array);
 
+typedef void(^HZSingleImageCropFinishBlock)(UIImage *cropImage,PHAsset *asset,CGRect cropRectFromOriginalImage);
+
 @interface HZPickerNavigationController : UINavigationController
 
 @property (assign, nonatomic) HZPickerImageStyle imageStyle;
@@ -23,5 +25,7 @@ typedef void(^HZSelectMediaDataFinishBlock)(NSArray *array);
 @property (assign, nonatomic) NSInteger maximumNumberOfSelection;
 
 @property (copy , nonatomic) HZSelectMediaDataFinishBlock selectMediaDataFinishBlock;
+
+@property (copy , nonatomic) HZSingleImageCropFinishBlock singleImageCropFinishBlock;
 
 @end

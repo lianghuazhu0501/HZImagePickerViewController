@@ -21,21 +21,22 @@
 #define kHZSelectMediaFinishNotification @"HZSelectMediaFinishNotification"
 
 #define kHZPickerPreViewControllerClickSelectButtonNotification @"HZPickerPreViewControllerClickSelectButtonNotification"
-
+#define kHZPreviewSingleImageViewControllerClickCropEnterNotification @"HZPreviewSingleImageViewControllerClickCropEnterNotification"
 
 
 typedef enum : NSInteger {
-    HZShapeImageForNotType=0,
-    HZSquareImageType,
-    HZRectangleImageForHeightType,
-    HZRectangleImageForLongHeightType,
-    HZRectangleImageForWidthType,
-    HZRectangleImageForLongWidthType,
+    HZShapeImageTypeNone=0,
+    HZShapeImageTypeSquare,
+    HZShapeImageTypeHeight,
+    HZShapeImageTypeLongHeight,
+    HZShapeImageTypeWidth,
+    HZShapeImageTypeLongWidth,
 }HZShapeImageType;
 
 typedef enum : NSUInteger {
+    HZPickerImageStyleList = 0,
     HZPickerImageStyleFilmCameras,
-    HZPickerImageStyleList,
+    HZPickerImageStyleCropSingleImage,
 } HZPickerImageStyle;
 
 

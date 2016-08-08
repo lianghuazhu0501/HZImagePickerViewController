@@ -21,6 +21,8 @@
 
 @property (assign, nonatomic) NSInteger maximumNumberOfSelection;
 
+@property (assign, nonatomic) CGSize cropImageSize;
+
 +(HZAppearanceManager *)sharedManager;
 
 @end

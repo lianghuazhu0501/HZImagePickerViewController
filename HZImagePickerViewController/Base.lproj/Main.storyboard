@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Index View Controller-->
@@ -17,22 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07l-GC-Oxh" userLabel="Click  Button">
-                                <rect key="frame" x="260" y="50" width="81" height="30"/>
-                                <state key="normal" title="please click"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07l-GC-Oxh" userLabel="Crop Image Button">
+                                <rect key="frame" x="70" y="50" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="clickButton:" destination="iOQ-WI-K6f" eventType="touchUpInside" id="8Ee-wd-77z"/>
+                                    <action selector="clickCropImageButton:" destination="iOQ-WI-K6f" eventType="touchUpInside" id="h13-WU-c3c"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-Hx-6mm" userLabel="Select Image Button">
+                                <rect key="frame" x="166" y="50" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="clickSelectImageButton:" destination="iOQ-WI-K6f" eventType="touchUpInside" id="ctU-rU-G1c"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2X-DD-cFV" userLabel="Select Finish Button">
+                                <rect key="frame" x="120" y="350" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="bdh-6T-5SL"/>
+                                    <constraint firstAttribute="height" constant="150" id="jus-uv-Sop"/>
+                                </constraints>
+                            </button>
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Koy-KK-VxH">
+                                <rect key="frame" x="20" y="350" width="560" height="150"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="07l-GC-Oxh" firstAttribute="centerX" secondItem="zyJ-Es-HcC" secondAttribute="centerX" id="HTT-ry-2TQ"/>
+                            <constraint firstItem="nVo-Hx-6mm" firstAttribute="top" secondItem="07l-GC-Oxh" secondAttribute="top" id="4F3-re-sMu"/>
+                            <constraint firstItem="f2X-DD-cFV" firstAttribute="leading" secondItem="zyJ-Es-HcC" secondAttribute="leadingMargin" constant="100" id="JHw-Qv-K54"/>
+                            <constraint firstItem="07l-GC-Oxh" firstAttribute="leading" secondItem="zyJ-Es-HcC" secondAttribute="leadingMargin" constant="50" id="K89-f9-wK8"/>
+                            <constraint firstItem="ZFi-b7-h0d" firstAttribute="top" secondItem="f2X-DD-cFV" secondAttribute="bottom" constant="100" id="KLy-AX-Az5"/>
+                            <constraint firstItem="nVo-Hx-6mm" firstAttribute="leading" secondItem="07l-GC-Oxh" secondAttribute="trailing" constant="50" id="RYG-yS-wCS"/>
+                            <constraint firstItem="Koy-KK-VxH" firstAttribute="top" secondItem="f2X-DD-cFV" secondAttribute="top" id="ZdS-qT-mZX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Koy-KK-VxH" secondAttribute="trailing" id="gYZ-Aj-2Dz"/>
+                            <constraint firstItem="nVo-Hx-6mm" firstAttribute="bottom" secondItem="07l-GC-Oxh" secondAttribute="bottom" id="rWR-dJ-d2w"/>
                             <constraint firstItem="07l-GC-Oxh" firstAttribute="top" secondItem="fKV-rg-SJO" secondAttribute="bottom" constant="30" id="sjR-DN-yp6"/>
+                            <constraint firstItem="Koy-KK-VxH" firstAttribute="leading" secondItem="zyJ-Es-HcC" secondAttribute="leadingMargin" id="swv-fN-8TM"/>
+                            <constraint firstItem="Koy-KK-VxH" firstAttribute="bottom" secondItem="f2X-DD-cFV" secondAttribute="bottom" id="wqE-6P-OFp"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="clickButton" destination="07l-GC-Oxh" id="LJR-em-LAK"/>
+                        <outlet property="cropImageButton" destination="07l-GC-Oxh" id="Cdb-Bk-SVo"/>
+                        <outlet property="selectFinishCropButton" destination="f2X-DD-cFV" id="Nx5-fc-AC6"/>
+                        <outlet property="selectImageButton" destination="nVo-Hx-6mm" id="cjR-gx-6OP"/>
+                        <outlet property="showScrollView" destination="Koy-KK-VxH" id="KdZ-IZ-8fY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7w-47-0gb" userLabel="First Responder" sceneMemberID="firstResponder"/>

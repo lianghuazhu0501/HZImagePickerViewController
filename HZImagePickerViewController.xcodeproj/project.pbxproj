@@ -35,6 +35,10 @@
 		4EABC0681D3F1C22001B5B06 /* HZPreviewImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EABC0671D3F1C22001B5B06 /* HZPreviewImageScrollView.m */; };
 		4EABC06B1D41F3E3001B5B06 /* HZPreviewImageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EABC06A1D41F3E3001B5B06 /* HZPreviewImageViewModel.m */; };
 		4EABC0711D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EABC0701D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.m */; };
+		4EB341C31D533EBE009B5E60 /* HZBasePreViewImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB341C21D533EBE009B5E60 /* HZBasePreViewImageScrollView.m */; };
+		4EB341C61D535574009B5E60 /* HZPreviewSingleImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB341C51D535574009B5E60 /* HZPreviewSingleImageViewController.m */; };
+		4EB341CC1D535B2D009B5E60 /* HZCropCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB341CB1D535B2D009B5E60 /* HZCropCenterView.m */; };
+		4EB341CF1D54400F009B5E60 /* HZPreViewSingleImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB341CE1D54400F009B5E60 /* HZPreViewSingleImageScrollView.m */; };
 		4EBC386A1D362DD3005EA073 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC38691D362DD3005EA073 /* main.m */; };
 		4EBC386D1D362DD3005EA073 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC386C1D362DD3005EA073 /* AppDelegate.m */; };
 		4EBC38701D362DD3005EA073 /* HZImagePickerViewController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC386E1D362DD3005EA073 /* HZImagePickerViewController.xcdatamodeld */; };
@@ -47,7 +51,6 @@
 		4EBC388A1D3645DD005EA073 /* HZPickerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC38891D3645DD005EA073 /* HZPickerStoryboard.storyboard */; };
 		4EBC38961D365032005EA073 /* HZPickerImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC38931D365032005EA073 /* HZPickerImageViewController.m */; };
 		4EBC38971D365032005EA073 /* HZPickerNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC38951D365032005EA073 /* HZPickerNavigationController.m */; };
-		4EBC38A41D365439005EA073 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC38A61D365439005EA073 /* Localizable.strings */; };
 		4EBC39AF1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC39AD1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.m */; };
 		4EBC39B01D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC39AE1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.xib */; };
 		4EBC39B31D38CCF20076B544 /* HZPickerAlbumViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBC39B21D38CCF20076B544 /* HZPickerAlbumViewModel.m */; };
@@ -55,6 +58,7 @@
 		4EBC39BA1D38E2980076B544 /* hz_unSelect_image_item@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC39B61D38E2980076B544 /* hz_unSelect_image_item@3x.png */; };
 		4EBC39BB1D38E2980076B544 /* hz_select_image_item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC39B71D38E2980076B544 /* hz_select_image_item@2x.png */; };
 		4EBC39BC1D38E2980076B544 /* hz_select_image_item@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC39B81D38E2980076B544 /* hz_select_image_item@3x.png */; };
+		4ED732AF1D5869AB00A11BE3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED732B11D5869AB00A11BE3 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +104,14 @@
 		4EABC06A1D41F3E3001B5B06 /* HZPreviewImageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPreviewImageViewModel.m; sourceTree = "<group>"; };
 		4EABC06F1D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+HZAddition.h"; sourceTree = "<group>"; };
 		4EABC0701D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+HZAddition.m"; sourceTree = "<group>"; };
+		4EB341C11D533EBE009B5E60 /* HZBasePreViewImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZBasePreViewImageScrollView.h; sourceTree = "<group>"; };
+		4EB341C21D533EBE009B5E60 /* HZBasePreViewImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZBasePreViewImageScrollView.m; sourceTree = "<group>"; };
+		4EB341C41D535574009B5E60 /* HZPreviewSingleImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPreviewSingleImageViewController.h; sourceTree = "<group>"; };
+		4EB341C51D535574009B5E60 /* HZPreviewSingleImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPreviewSingleImageViewController.m; sourceTree = "<group>"; };
+		4EB341CA1D535B2D009B5E60 /* HZCropCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZCropCenterView.h; sourceTree = "<group>"; };
+		4EB341CB1D535B2D009B5E60 /* HZCropCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZCropCenterView.m; sourceTree = "<group>"; };
+		4EB341CD1D54400F009B5E60 /* HZPreViewSingleImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPreViewSingleImageScrollView.h; sourceTree = "<group>"; };
+		4EB341CE1D54400F009B5E60 /* HZPreViewSingleImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPreViewSingleImageScrollView.m; sourceTree = "<group>"; };
 		4EBC38651D362DD3005EA073 /* HZImagePickerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HZImagePickerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EBC38691D362DD3005EA073 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4EBC386B1D362DD3005EA073 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,12 +132,6 @@
 		4EBC38931D365032005EA073 /* HZPickerImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPickerImageViewController.m; sourceTree = "<group>"; };
 		4EBC38941D365032005EA073 /* HZPickerNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPickerNavigationController.h; sourceTree = "<group>"; };
 		4EBC38951D365032005EA073 /* HZPickerNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPickerNavigationController.m; sourceTree = "<group>"; };
-		4EBC389E1D365353005EA073 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		4EBC389F1D365353005EA073 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		4EBC38A01D365359005EA073 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		4EBC38A11D365359005EA073 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		4EBC38A71D36543C005EA073 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		4EBC38A81D36543D005EA073 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4EBC39AC1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZPickerAlbumCollectionViewCell.h; sourceTree = "<group>"; };
 		4EBC39AD1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZPickerAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		4EBC39AE1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZPickerAlbumCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -135,6 +141,13 @@
 		4EBC39B61D38E2980076B544 /* hz_unSelect_image_item@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hz_unSelect_image_item@3x.png"; sourceTree = "<group>"; };
 		4EBC39B71D38E2980076B544 /* hz_select_image_item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hz_select_image_item@2x.png"; sourceTree = "<group>"; };
 		4EBC39B81D38E2980076B544 /* hz_select_image_item@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hz_select_image_item@3x.png"; sourceTree = "<group>"; };
+		4ED7329E1D58643E00A11BE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		4ED7329F1D58643E00A11BE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4ED732AA1D58685500A11BE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4ED732AB1D58685500A11BE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4ED732B01D5869AB00A11BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4ED732B21D5869B000A11BE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4ED732B31D5869B200A11BE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +198,8 @@
 			children = (
 				4E8E08401D3C74C5008FE54E /* HZLineView.h */,
 				4E8E08411D3C74C5008FE54E /* HZLineView.m */,
+				4EB341CA1D535B2D009B5E60 /* HZCropCenterView.h */,
+				4EB341CB1D535B2D009B5E60 /* HZCropCenterView.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -216,6 +231,10 @@
 			children = (
 				4EABC0661D3F1C22001B5B06 /* HZPreviewImageScrollView.h */,
 				4EABC0671D3F1C22001B5B06 /* HZPreviewImageScrollView.m */,
+				4EB341C11D533EBE009B5E60 /* HZBasePreViewImageScrollView.h */,
+				4EB341C21D533EBE009B5E60 /* HZBasePreViewImageScrollView.m */,
+				4EB341CD1D54400F009B5E60 /* HZPreViewSingleImageScrollView.h */,
+				4EB341CE1D54400F009B5E60 /* HZPreViewSingleImageScrollView.m */,
 			);
 			path = UIScrollView;
 			sourceTree = "<group>";
@@ -279,9 +298,9 @@
 				4E40EF081D37836F0033D002 /* UITableViewCell */,
 				4EBC38911D365032005EA073 /* UIViewController */,
 				4EBC39A81D38964B0076B544 /* UICollectionViewCell */,
-				4EBC38891D3645DD005EA073 /* HZPickerStoryboard.storyboard */,
-				4EBC38A61D365439005EA073 /* Localizable.strings */,
 				4E40EF0E1D3790A40033D002 /* HZPickerHeader.h */,
+				4ED732B11D5869AB00A11BE3 /* Localizable.strings */,
+				4EBC38891D3645DD005EA073 /* HZPickerStoryboard.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -299,6 +318,8 @@
 				4E8E085E1D3CE28F008FE54E /* HZPreviewImageViewController.m */,
 				4E2ACA9E1D489FEC00CF0021 /* HZPreviewVideoViewController.h */,
 				4E2ACA9F1D489FEC00CF0021 /* HZPreviewVideoViewController.m */,
+				4EB341C41D535574009B5E60 /* HZPreviewSingleImageViewController.h */,
+				4EB341C51D535574009B5E60 /* HZPreviewSingleImageViewController.m */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -378,8 +399,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
-				"zh-Hans",
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 4EBC385C1D362DD2005EA073;
 			productRefGroup = 4EBC38661D362DD3005EA073 /* Products */;
@@ -400,13 +421,13 @@
 				4E8E085B1D3CDB25008FE54E /* hz_icon_video@2x.png in Resources */,
 				4EBC387E1D362DD3005EA073 /* LaunchScreen.storyboard in Resources */,
 				4EBC388A1D3645DD005EA073 /* HZPickerStoryboard.storyboard in Resources */,
-				4EBC38A41D365439005EA073 /* Localizable.strings in Resources */,
 				4E0044601D473A6C00EF1087 /* hz_icon_back_normal@2x.png in Resources */,
 				4E8E08571D3CDB25008FE54E /* hz_icon_audio@2x.png in Resources */,
 				4E0044621D473A6C00EF1087 /* hz_icon_checkbox_normal@2x.png in Resources */,
 				4E8E08581D3CDB25008FE54E /* hz_icon_audio@3x.png in Resources */,
 				4EBC39B01D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.xib in Resources */,
 				4E0044641D473A6C00EF1087 /* hz_icon_checkbox_selected@2x.png in Resources */,
+				4ED732AF1D5869AB00A11BE3 /* Localizable.strings in Resources */,
 				4E0044611D473A6C00EF1087 /* hz_icon_back_normal@3x.png in Resources */,
 				4E2ACAA31D48AB2F00CF0021 /* hz_icon_play_video_normal@2x.png in Resources */,
 				4EBC387B1D362DD3005EA073 /* Assets.xcassets in Resources */,
@@ -436,6 +457,7 @@
 				4E8E08421D3C74C5008FE54E /* HZLineView.m in Sources */,
 				4EABC0711D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.m in Sources */,
 				4EBC38761D362DD3005EA073 /* DetailViewController.m in Sources */,
+				4EB341CF1D54400F009B5E60 /* HZPreViewSingleImageScrollView.m in Sources */,
 				4EBC38731D362DD3005EA073 /* MasterViewController.m in Sources */,
 				4E40EF0C1D3783990033D002 /* HZPickImageTableViewCell.m in Sources */,
 				4EBC386D1D362DD3005EA073 /* AppDelegate.m in Sources */,
@@ -444,8 +466,11 @@
 				4EBC39B31D38CCF20076B544 /* HZPickerAlbumViewModel.m in Sources */,
 				4E2ACAA01D489FEC00CF0021 /* HZPreviewVideoViewController.m in Sources */,
 				4EABC0681D3F1C22001B5B06 /* HZPreviewImageScrollView.m in Sources */,
+				4EB341C31D533EBE009B5E60 /* HZBasePreViewImageScrollView.m in Sources */,
 				4E8E085F1D3CE28F008FE54E /* HZPreviewImageViewController.m in Sources */,
+				4EB341CC1D535B2D009B5E60 /* HZCropCenterView.m in Sources */,
 				4E8E08501D3CB551008FE54E /* HZStoryBoardManager.m in Sources */,
+				4EB341C61D535574009B5E60 /* HZPreviewSingleImageViewController.m in Sources */,
 				4EBC38701D362DD3005EA073 /* HZImagePickerViewController.xcdatamodeld in Sources */,
 				4E8E084F1D3CB551008FE54E /* HZAppearanceManager.m in Sources */,
 				4EBC39AF1D38B87E0076B544 /* HZPickerAlbumCollectionViewCell.m in Sources */,
@@ -464,8 +489,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				4EBC38781D362DD3005EA073 /* Base */,
-				4EBC389E1D365353005EA073 /* zh-Hans */,
-				4EBC38A01D365359005EA073 /* en */,
+				4ED7329E1D58643E00A11BE3 /* en */,
+				4ED732AA1D58685500A11BE3 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -474,17 +499,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				4EBC387D1D362DD3005EA073 /* Base */,
-				4EBC389F1D365353005EA073 /* zh-Hans */,
-				4EBC38A11D365359005EA073 /* en */,
+				4ED7329F1D58643E00A11BE3 /* en */,
+				4ED732AB1D58685500A11BE3 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		4EBC38A61D365439005EA073 /* Localizable.strings */ = {
+		4ED732B11D5869AB00A11BE3 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4EBC38A71D36543C005EA073 /* zh-Hans */,
-				4EBC38A81D36543D005EA073 /* en */,
+				4ED732B01D5869AB00A11BE3 /* Base */,
+				4ED732B21D5869B000A11BE3 /* en */,
+				4ED732B31D5869B200A11BE3 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

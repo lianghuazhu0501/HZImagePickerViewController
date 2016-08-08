@@ -192,7 +192,10 @@
                             <constraint firstItem="Alp-E5-scN" firstAttribute="width" secondItem="bpD-zk-tyc" secondAttribute="width" id="mIM-Ux-iCB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="k40-Vl-R2U"/>
                     <connections>
+                        <outlet property="bottomView" destination="arI-nN-L1c" id="khp-C5-xbT"/>
+                        <outlet property="bottomViewHeightLayouctConstraint" destination="RYT-4F-Wa4" id="eim-9P-xPO"/>
                         <outlet property="collectionViewFlowLayout" destination="SCF-Ox-4NF" id="Iqq-i8-gSz"/>
                         <outlet property="colletionView" destination="RCC-KV-a7D" id="Bso-RB-uPk"/>
                         <outlet property="enterButton" destination="6xH-x7-eGe" id="89y-da-5G3"/>
@@ -200,11 +203,85 @@
                         <outlet property="previewButton" destination="4Tt-r8-ybF" id="bwL-uJ-ojL"/>
                         <segue destination="09q-n2-q3t" kind="show" id="fLn-7q-0M9"/>
                         <segue destination="xwJ-tK-YUU" kind="show" id="HMq-OV-7Cm"/>
+                        <segue destination="A5W-0y-X4X" kind="show" id="MFl-1O-Vyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKW-9o-Q92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="897" y="44"/>
+        </scene>
+        <!--Preview Single Image View Controller-->
+        <scene sceneID="1bv-YR-0xu">
+            <objects>
+                <viewController storyboardIdentifier="HZPreviewSingleImageViewController" id="A5W-0y-X4X" customClass="HZPreviewSingleImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BOc-5W-hpp"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Cr-Xm-RoV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fga-9y-DtE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iG-p8-nUw" customClass="HZPreViewSingleImageScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNc-1e-See" customClass="HZCropCenterView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3y-MF-q3a" userLabel="Cancel Button">
+                                <rect key="frame" x="0.0" y="540" width="80" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ksv-U7-yjJ"/>
+                                    <constraint firstAttribute="width" constant="80" id="fuZ-9D-qdj"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickCancelButton:" destination="A5W-0y-X4X" eventType="touchUpInside" id="5mK-lZ-hCq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09k-Hv-SNy" userLabel="Enter Button">
+                                <rect key="frame" x="520" y="540" width="80" height="60"/>
+                                <state key="normal" title="Enter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickEneterButton:" destination="A5W-0y-X4X" eventType="touchUpInside" id="C1S-0V-sIu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l3y-MF-q3a" firstAttribute="height" secondItem="09k-Hv-SNy" secondAttribute="height" id="6ec-9Y-Z25"/>
+                            <constraint firstAttribute="trailing" secondItem="09k-Hv-SNy" secondAttribute="trailing" id="8t8-hG-b2l"/>
+                            <constraint firstItem="l3y-MF-q3a" firstAttribute="leading" secondItem="fga-9y-DtE" secondAttribute="leading" id="F38-oX-KDt"/>
+                            <constraint firstItem="zNc-1e-See" firstAttribute="centerX" secondItem="fga-9y-DtE" secondAttribute="centerX" id="KSH-wn-W7F"/>
+                            <constraint firstItem="2iG-p8-nUw" firstAttribute="leading" secondItem="fga-9y-DtE" secondAttribute="leading" id="T2l-aw-KGA"/>
+                            <constraint firstItem="zNc-1e-See" firstAttribute="top" secondItem="fga-9y-DtE" secondAttribute="topMargin" id="T96-mt-FsG"/>
+                            <constraint firstAttribute="bottom" secondItem="2iG-p8-nUw" secondAttribute="bottom" id="UxG-tA-DKr"/>
+                            <constraint firstItem="l3y-MF-q3a" firstAttribute="width" secondItem="09k-Hv-SNy" secondAttribute="width" id="YIC-Lh-rzs"/>
+                            <constraint firstItem="2iG-p8-nUw" firstAttribute="top" secondItem="fga-9y-DtE" secondAttribute="top" id="ZvF-fE-AIm"/>
+                            <constraint firstAttribute="trailing" secondItem="2iG-p8-nUw" secondAttribute="trailing" id="fUH-gm-Nuf"/>
+                            <constraint firstItem="zNc-1e-See" firstAttribute="width" secondItem="fga-9y-DtE" secondAttribute="width" id="lx6-MB-2cc"/>
+                            <constraint firstAttribute="bottom" secondItem="l3y-MF-q3a" secondAttribute="bottom" id="qkz-n2-uk1"/>
+                            <constraint firstAttribute="bottom" secondItem="09k-Hv-SNy" secondAttribute="bottom" id="v8C-XB-jfm"/>
+                            <constraint firstItem="7Cr-Xm-RoV" firstAttribute="top" secondItem="zNc-1e-See" secondAttribute="bottom" id="yvf-zy-VDq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Y1Z-ct-fpo"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="l3y-MF-q3a" id="2te-Gw-q6f"/>
+                        <outlet property="cropCenterView" destination="zNc-1e-See" id="5CO-x0-fF9"/>
+                        <outlet property="enterButton" destination="09k-Hv-SNy" id="AEQ-U1-rfa"/>
+                        <outlet property="zoomScrollView1" destination="2iG-p8-nUw" id="Ob7-hi-uyD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXF-h6-2lJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1584" y="1465.9999999999998"/>
         </scene>
         <!--Preview Image View Controller-->
         <scene sceneID="YdS-mn-8Yd">
@@ -395,6 +472,7 @@
                             <constraint firstItem="YVa-EQ-Ruf" firstAttribute="trailing" secondItem="FQ3-tf-X52" secondAttribute="trailing" id="xvG-Ab-oia"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hFF-Nw-IzX"/>
                     <connections>
                         <outlet property="backButton" destination="I93-Ib-ymK" id="Cgn-sz-9ZC"/>
                         <outlet property="bottomView" destination="Sne-B1-dWL" id="qKn-mC-yB2"/>
@@ -452,6 +530,7 @@
                             <constraint firstItem="j2r-v6-ivz" firstAttribute="top" secondItem="cdC-Z8-uSg" secondAttribute="bottom" id="q0f-QK-AkH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="QSy-FE-I14"/>
                     <connections>
                         <outlet property="allView" destination="cdC-Z8-uSg" id="nSV-ld-Jvz"/>
                         <outlet property="playButton" destination="T55-RT-oL5" id="qZn-au-bLh"/>
@@ -459,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLL-Of-XGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="775"/>
+            <point key="canvasLocation" x="1584" y="774.99999999999989"/>
         </scene>
     </scenes>
 </document>

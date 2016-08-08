@@ -35,8 +35,6 @@
 
 @property (weak,nonatomic) IBOutlet UILabel *mediaNumberLabel;
 
-
-
 @property (weak,nonatomic) IBOutlet UIImageView *touchPreviewImageView;
 
 @property (strong,nonatomic) HZPreviewImageViewModel *previewImageViewModel;
@@ -111,7 +109,7 @@
     self.mainScrollView.delegate = self;
     [self.mainScrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
     
-    if (self.albumViewModel.selectMediaDataArray.count == 1 || self.fetchResult.count == 1) {
+    if ((self.albumViewModel.selectMediaDataArray.count == 1 && self.isPreViewFlag) || self.fetchResult.count == 1) {
         self.mainScrollView.scrollEnabled = NO;
     }
     
@@ -257,8 +255,14 @@
 
 #pragma mark - Other
 -(void)hideOperationView{
-    self.topView.hidden = !self.topView.hidden;
-    self.bottomView.hidden = !self.bottomView.hidden;
+    
+    if ([HZAppearanceManager sharedManager].mediaType == PHAssetMediaTypeImage) {
+        
+        self.topView.hidden = !self.topView.hidden;
+        self.bottomView.hidden = !self.bottomView.hidden;
+        
+    }
+
 }
 
 
@@ -295,8 +299,19 @@
 
 -(void) showStatusBar{
     if (self.view.frame.size.height == kHZScreenSize.height) {
-        self.topView.hidden = NO;
-        self.bottomView.hidden = NO;
+        
+        if ([HZAppearanceManager sharedManager].mediaType == PHAssetMediaTypeImage) {
+            
+            self.topView.hidden = NO;
+            self.bottomView.hidden = NO;
+            
+        }else{
+            
+            self.topView.hidden = YES;
+            self.bottomView.hidden = YES;
+        
+        }
+        
     }
 }
 

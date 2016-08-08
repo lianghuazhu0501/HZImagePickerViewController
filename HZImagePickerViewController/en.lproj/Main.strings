@@ -1,6 +1,6 @@
 
-/* Class = "UIButton"; normalTitle = "please click"; ObjectID = "07l-GC-Oxh"; */
-"07l-GC-Oxh.normalTitle" = "please click";
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "07l-GC-Oxh"; */
+"07l-GC-Oxh.normalTitle" = "Button";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "T2Z-8q-FLo"; */
-"T2Z-8q-FLo.text" = "Label";
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nVo-Hx-6mm"; */
+"nVo-Hx-6mm.normalTitle" = "Button";

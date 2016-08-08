@@ -14,6 +14,7 @@
 #import "HZStoryBoardManager.h"
 #import "HZAppearanceManager.h"
 #import "HZPreviewVideoViewController.h"
+#import "HZPreviewSingleImageViewController.h"
 
 #define kSpacePadding 4.0f
 
@@ -26,6 +27,8 @@
 
 @property (assign,nonatomic) CGFloat collectionViewCellWidth;
 
+@property (assign,nonatomic) CGFloat collectionViewHeight;
+
 @property (assign,nonatomic) CGFloat collectionViewContentSizeHeight;
 
 @property (strong,nonatomic) HZPickerAlbumViewModel *albumViewModel;
@@ -33,6 +36,9 @@
 @property (weak,nonatomic) IBOutlet UIButton *enterButton;
 
 @property (weak,nonatomic) IBOutlet UIButton *previewButton;
+
+@property (weak,nonatomic) IBOutlet UIView *bottomView;
+@property (weak,nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeightLayouctConstraint;
 
 @property (weak,nonatomic) IBOutlet HZLineView *lineView;
 
@@ -114,14 +120,16 @@
         
         PHAsset *selectAsset = self.albumEntity.fetchResult[touchIndexPath.row];
         
-        if (selectAsset.mediaType == [HZAppearanceManager sharedManager].mediaType) {
+        if (selectAsset.mediaType == PHAssetMediaTypeImage) {
+            
+            CGSize preferredContentSize = CGSizeMake(50.0f, selectAsset.pixelHeight*50.0f/selectAsset.pixelWidth);
             
             HZPreviewImageViewController *previewImageViewController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPreviewImageViewController"];
             previewImageViewController.is3DTouchFlag = YES;
             previewImageViewController.selectedIndex = touchIndexPath.row;
             previewImageViewController.fetchResult = self.albumEntity.fetchResult;
             previewImageViewController.albumViewModel = self.albumViewModel;
-            previewImageViewController.preferredContentSize = CGSizeMake(50.0f, selectAsset.pixelHeight*50.0f/selectAsset.pixelWidth);
+            previewImageViewController.preferredContentSize = preferredContentSize;
             return previewImageViewController;
             
         }
@@ -146,14 +154,7 @@
 }
 
 -(void)clickPreviewButton:(id)sender{
-    
-    HZPreviewImageViewController *previewImageViewController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPreviewImageViewController"];
-    previewImageViewController.isPreViewFlag = YES;
-    previewImageViewController.selectedIndex = 0;
-    previewImageViewController.fetchResult = self.albumEntity.fetchResult;
-    previewImageViewController.albumViewModel = self.albumViewModel;
-    [self.navigationController pushViewController:previewImageViewController animated:YES];
-
+    [self comeToPreviewImageViewControllerWithFlag:YES index:0];
 }
 
 #pragma mark - UICollectionDelete And DataSource
@@ -201,16 +202,8 @@
             [weakSelf.navigationController pushViewController:previewVideoViewController animated:YES];
             
         }else{
-            
-            HZPreviewImageViewController *previewImageViewController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPreviewImageViewController"];
-            previewImageViewController.isPreViewFlag = NO;
-            previewImageViewController.selectedIndex = [weakSelf.albumEntity.fetchResult indexOfObject:asset];
-            previewImageViewController.fetchResult = weakSelf.albumEntity.fetchResult;
-            previewImageViewController.albumViewModel = weakSelf.albumViewModel;
-            [weakSelf.navigationController pushViewController:previewImageViewController animated:YES];
-            
+            [weakSelf comeToPreviewImageViewControllerWithFlag:NO index:[weakSelf.albumEntity.fetchResult indexOfObject:asset]];
         }
-        
         
     };
     
@@ -243,14 +236,24 @@
 #pragma mark - KVO
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     
-    if ([keyPath isEqualToString:@"contentSize"] && self.collectionViewContentSizeHeight == 0) {
+    if ([keyPath isEqualToString:@"contentSize"]) {
         
+        BOOL changeFlag = NO;
         NSDictionary *changeDictionary = change;
         CGSize newSize = [[changeDictionary objectForKey:@"new"] CGSizeValue];
         
-        if (newSize.height>0) {
+        if (self.collectionViewContentSizeHeight == 0 && newSize.height>0) {
+            changeFlag = YES;
+        }else{
+            if (self.collectionViewContentSizeHeight >0 && CGRectGetHeight(self.colletionView.frame) > self.collectionViewHeight) {
+                changeFlag = YES;
+            }
+        }
+        
+        if (changeFlag) {
             
             self.collectionViewContentSizeHeight = newSize.height;
+            self.collectionViewHeight = CGRectGetHeight(self.colletionView.frame);
             [self.colletionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.albumEntity.fetchResult.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         }
         
@@ -261,29 +264,61 @@
 #pragma mark - Other
 -(void)setUpBottomViewButtonState{
     
-    BOOL buttonEnabled = self.albumViewModel.selectMediaDataArray.count>0?YES:NO;
-
-    self.enterButton.enabled = buttonEnabled;
-    self.previewButton.enabled = buttonEnabled;
-
-    if (buttonEnabled) {
+    if ([HZAppearanceManager sharedManager].imageStyle == HZPickerImageStyleCropSingleImage) {
         
-        [self.enterButton setTitleColor:kHZButtonEnableColor forState:UIControlStateNormal];
-        [self.previewButton setTitleColor:kHZButtonEnableColor forState:UIControlStateNormal];
-        
-        [self.enterButton setTitleColor:kHZButtonHighlightColor forState:UIControlStateHighlighted];
-        [self.previewButton setTitleColor:kHZButtonHighlightColor forState:UIControlStateHighlighted];
+        self.bottomView.hidden = YES;
+        self.bottomViewHeightLayouctConstraint.constant = 0;
         
     }else{
-    
-        [self.enterButton setTitleColor:kHZButtonDisableColor forState:UIControlStateNormal];
-        [self.previewButton setTitleColor:kHZButtonDisableColor forState:UIControlStateNormal];
+        
+        BOOL buttonEnabled = self.albumViewModel.selectMediaDataArray.count>0?YES:NO;
+        
+        self.enterButton.enabled = buttonEnabled;
+        self.previewButton.enabled = buttonEnabled;
+        
+        if (buttonEnabled) {
+            
+            [self.enterButton setTitleColor:kHZButtonEnableColor forState:UIControlStateNormal];
+            [self.previewButton setTitleColor:kHZButtonEnableColor forState:UIControlStateNormal];
+            
+            [self.enterButton setTitleColor:kHZButtonHighlightColor forState:UIControlStateHighlighted];
+            [self.previewButton setTitleColor:kHZButtonHighlightColor forState:UIControlStateHighlighted];
+            
+        }else{
+            
+            [self.enterButton setTitleColor:kHZButtonDisableColor forState:UIControlStateNormal];
+            [self.previewButton setTitleColor:kHZButtonDisableColor forState:UIControlStateNormal];
+            
+        }
+        
+        [self.previewButton setTitle:NSLocalizedString(@"HZPickerAlbumControllerPreviewButtonTitle", nil) forState:UIControlStateNormal];
+        [self.enterButton setTitle:[NSString stringWithFormat:@"%@(%ld)",NSLocalizedString(@"HZPickerAlbumControllerEnterButtonTitle", nil),self.albumViewModel.selectMediaDataArray.count] forState:UIControlStateNormal];
         
     }
     
-    [self.previewButton setTitle:NSLocalizedString(@"HZPickerAlbumControllerPreviewButtonTitle", nil) forState:UIControlStateNormal];
-    [self.enterButton setTitle:[NSString stringWithFormat:@"%@(%ld)",NSLocalizedString(@"HZPickerAlbumControllerEnterButtonTitle", nil),self.albumViewModel.selectMediaDataArray.count] forState:UIControlStateNormal];
+}
 
+-(void)comeToPreviewImageViewControllerWithFlag:(BOOL)previewFlag index:(NSInteger)selectIndex{
+    
+    if ([HZAppearanceManager sharedManager].imageStyle == HZPickerImageStyleCropSingleImage) {
+        
+        HZPreviewSingleImageViewController *singleImageViewController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPreviewSingleImageViewController"];
+        singleImageViewController.asset = self.albumEntity.fetchResult[selectIndex];
+        singleImageViewController.albumViewModel = self.albumViewModel;
+        [self.navigationController pushViewController:singleImageViewController animated:YES];
+
+        
+    }else{
+        
+        HZPreviewImageViewController *previewImageViewController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPreviewImageViewController"];
+        previewImageViewController.isPreViewFlag = previewFlag;
+        previewImageViewController.selectedIndex = selectIndex;
+        previewImageViewController.fetchResult = self.albumEntity.fetchResult;
+        previewImageViewController.albumViewModel = self.albumViewModel;
+        [self.navigationController pushViewController:previewImageViewController animated:YES];
+        
+    }
+    
 }
 
 

@@ -9,16 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import "HZPreviewImageViewModel.h"
+#import "HZBasePreViewImageScrollView.h"
 
 typedef void(^SingleTapScrollViewBlock)(void);
 
-@interface HZPreviewImageScrollView : UIScrollView
+@interface HZPreviewImageScrollView : HZBasePreViewImageScrollView
 
 @property (strong,nonatomic) PHAsset *asset;
-
-@property (strong,nonatomic) UIImageView *previewImageView;
-
-@property (strong,nonatomic) UIActivityIndicatorView *loaddingActivityIndicatorView;
 
 @property (strong,nonatomic) HZPreviewImageViewModel *previewImageViewModel;
 

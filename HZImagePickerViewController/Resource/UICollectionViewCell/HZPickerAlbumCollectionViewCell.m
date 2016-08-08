@@ -54,6 +54,7 @@
     
     self.thumbnailImageView.contentMode = UIViewContentModeScaleAspectFill;
     
+    self.selectedButton.hidden = YES;
     [self.selectedButton setImage:[UIImage imageNamed:@"hz_unSelect_image_item"] forState:UIControlStateNormal];
     [self.selectedButton setImage:[UIImage imageNamed:@"hz_select_image_item"] forState:UIControlStateSelected];
     
@@ -67,9 +68,14 @@
     __weak typeof(self) weakSelf = self;
     
     self.asset = asset;
-    self.selectedButton.selected = [self.albumViewModel.selectMediaDataArray containsObject:self.asset];
-    self.selectedButton.hidden = !([HZAppearanceManager sharedManager].mediaType == asset.mediaType);
     self.thumbnailImageView.image = nil;
+    self.selectedButton.selected = [self.albumViewModel.selectMediaDataArray containsObject:self.asset];
+    
+    if ([HZAppearanceManager sharedManager].imageStyle == HZPickerImageStyleCropSingleImage ) {
+        
+    }else{
+        self.selectedButton.hidden = !([HZAppearanceManager sharedManager].mediaType == asset.mediaType);
+    }
     
     if (self.imageRequestID != -1) {
         [[PHImageManager defaultManager] cancelImageRequest:self.imageRequestID];
