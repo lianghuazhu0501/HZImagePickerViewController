@@ -34,5 +34,7 @@ navigationController.singleImageCropFinishBlock = ^(UIImage *cropImage,PHAsset *
 [self presentViewController:navigationController animated:YES completion:nil];
  ```
  
+<br/>
+![](https://raw.githubusercontent.com/lianghuazhu0501/HZImagePickerViewController/master/HZImagePickerViewController/IMG_5917.PNG)
 
 
