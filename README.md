@@ -8,7 +8,6 @@ HZPickverImageViewController supports iOS 8.0+, only use ARC
 <br/>
 # How to use
 ### For image multi-select and preview , you can refer to the following code 
- <br/>
 ```c
 HZPickerNavigationController *navigationController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPickerNavigationController"];
 navigationController.mediaType = PHAssetMediaTypeImage;
