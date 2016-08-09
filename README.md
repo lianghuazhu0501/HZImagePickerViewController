@@ -19,7 +19,20 @@ navigationController.selectMediaDataFinishBlock = ^(NSArray *mediaArray){
 [self presentViewController:navigationController animated:YES completion:nil];
 ```
 
- <br/>
+<br/>
 ![](https://raw.githubusercontent.com/lianghuazhu0501/HZImagePickerViewController/master/HZImagePickerViewController/IMG_5916.PNG)
+
+<br/>
+<br/>
+### For single image to cut , you can refer to the following code 
+```c
+HZPickerNavigationController *navigationController = [[HZStoryBoardManager sharedPickerStoryboard] instantiateViewControllerWithIdentifier:@"HZPickerNavigationController"];
+navigationController.mediaType = PHAssetMediaTypeImage;
+navigationController.imageStyle = HZPickerImageStyleCropSingleImage;
+navigationController.singleImageCropFinishBlock = ^(UIImage *cropImage,PHAsset *asset,CGRect cropRect){
+};
+[self presentViewController:navigationController animated:YES completion:nil];
+ ```
+ 
 
 
