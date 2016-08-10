@@ -11,6 +11,7 @@
 #import "HZPickerHeader.h"
 #import "HZPreViewSingleImageScrollView.h"
 #import "NSLayoutConstraint+HZAddition.h"
+#import "UIImage+HZAddtion.h"
 
 @interface HZPreviewSingleImageViewController()<UIScrollViewDelegate>
 
@@ -100,6 +101,8 @@
 
 -(void)clickEneterButton:(id)sender{
     
+    __weak typeof(self) weakSelf = self;
+    
     CGFloat cropViewWidth = self.cropCenterView.cropSize.width;
     CGFloat cropViewHeight = self.cropCenterView.cropSize.height;
     
@@ -118,11 +121,40 @@
     CGFloat actualCropWidth = cropViewWidth*scaleRatio;
     CGFloat actualCropHeight = cropViewHeight*scaleRatio;
     
-    NSValue *rectValue = [NSValue valueWithCGRect:CGRectMake(actualCropX, actualCropY, actualCropWidth, actualCropHeight)];
+    CGSize originalImageSize = CGSizeMake(self.asset.pixelWidth, self.asset.pixelHeight);
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kHZPreviewSingleImageViewControllerClickCropEnterNotification object:@[rectValue,self.asset]];
+    CGRect cropRect = CGRectMake(actualCropX, actualCropY, actualCropWidth, actualCropHeight);
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [[PHImageManager defaultManager] requestImageForAsset:self.asset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        
+        if (CGSizeEqualToSize(result.size, originalImageSize)) {
+            
+            if (result.imageOrientation == UIImageOrientationUp) {
+                [weakSelf generate:result rect:cropRect];
+            }else{
+                
+                result = [UIImage fixOrientation:result];
+                [weakSelf generate:result rect:cropRect];
+                
+            }
+            
+        }
+        
+    }];
+    
+}
+
+#pragma mark - Other
+-(void)generate:(UIImage *)result rect:(CGRect)cropRect{
+    
+    CGImageRef imageRef = [result CGImage];
+    CGImageRef createImageRef = CGImageCreateWithImageInRect(imageRef, cropRect);
+    UIImage *image = [UIImage imageWithCGImage:createImageRef];
+    CGImageRelease(createImageRef);
+    
+    NSValue *rectValue = [NSValue valueWithCGRect:cropRect];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kHZPreviewSingleImageViewControllerCropFinishNotification object:@[image,self.asset,rectValue]];
     
 }
 

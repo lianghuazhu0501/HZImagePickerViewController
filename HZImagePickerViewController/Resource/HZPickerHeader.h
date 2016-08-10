@@ -21,7 +21,7 @@
 #define kHZSelectMediaFinishNotification @"HZSelectMediaFinishNotification"
 
 #define kHZPickerPreViewControllerClickSelectButtonNotification @"HZPickerPreViewControllerClickSelectButtonNotification"
-#define kHZPreviewSingleImageViewControllerClickCropEnterNotification @"HZPreviewSingleImageViewControllerClickCropEnterNotification"
+#define kHZPreviewSingleImageViewControllerCropFinishNotification @"HZPreviewSingleImageViewControllerClickCropEnterNotification"
 
 
 typedef enum : NSInteger {

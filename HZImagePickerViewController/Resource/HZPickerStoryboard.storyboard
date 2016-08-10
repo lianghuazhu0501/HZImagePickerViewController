@@ -228,7 +228,55 @@
                             </scrollView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNc-1e-See" customClass="HZCropCenterView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7Z-kU-Euk" userLabel="Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="C5C-0h-1BS"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ma4-sG-II3" userLabel="Bottom View">
+                                        <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="46c-8h-yYj" userLabel="Left View">
+                                        <rect key="frame" x="0.0" y="100" width="40" height="400"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="KCU-HF-Nzv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gh-Ni-A4N" userLabel="Right View">
+                                        <rect key="frame" x="560" y="100" width="40" height="400"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="k7Z-kU-Euk" firstAttribute="leading" secondItem="zNc-1e-See" secondAttribute="leading" id="30v-kY-OTM"/>
+                                    <constraint firstItem="2gh-Ni-A4N" firstAttribute="top" secondItem="k7Z-kU-Euk" secondAttribute="bottom" id="4oL-yR-eCX"/>
+                                    <constraint firstItem="46c-8h-yYj" firstAttribute="top" secondItem="k7Z-kU-Euk" secondAttribute="bottom" id="EHZ-S0-4FT"/>
+                                    <constraint firstItem="ma4-sG-II3" firstAttribute="top" secondItem="2gh-Ni-A4N" secondAttribute="bottom" id="Md3-gZ-BLC"/>
+                                    <constraint firstItem="ma4-sG-II3" firstAttribute="top" secondItem="46c-8h-yYj" secondAttribute="bottom" id="Mha-34-5Kh"/>
+                                    <constraint firstItem="ma4-sG-II3" firstAttribute="leading" secondItem="zNc-1e-See" secondAttribute="leading" id="YDJ-13-xUg"/>
+                                    <constraint firstItem="2gh-Ni-A4N" firstAttribute="width" secondItem="46c-8h-yYj" secondAttribute="width" id="ZHR-Yf-zoM"/>
+                                    <constraint firstAttribute="trailing" secondItem="k7Z-kU-Euk" secondAttribute="trailing" id="fqS-7j-uYA"/>
+                                    <constraint firstItem="ma4-sG-II3" firstAttribute="height" secondItem="k7Z-kU-Euk" secondAttribute="height" id="g43-97-5D9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ma4-sG-II3" secondAttribute="bottom" id="gsR-P4-9Db"/>
+                                    <constraint firstItem="k7Z-kU-Euk" firstAttribute="top" secondItem="zNc-1e-See" secondAttribute="top" id="hxb-9A-Ixe"/>
+                                    <constraint firstAttribute="trailing" secondItem="2gh-Ni-A4N" secondAttribute="trailing" id="qG6-PJ-Cwx"/>
+                                    <constraint firstAttribute="trailing" secondItem="ma4-sG-II3" secondAttribute="trailing" id="ysz-3I-hc5"/>
+                                    <constraint firstItem="46c-8h-yYj" firstAttribute="leading" secondItem="zNc-1e-See" secondAttribute="leading" id="z02-TP-GIt"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bottomView" destination="ma4-sG-II3" id="emA-wA-h1h"/>
+                                    <outlet property="leftView" destination="46c-8h-yYj" id="KjB-Ir-1Xk"/>
+                                    <outlet property="leftViewWidthLayoutConstraint" destination="KCU-HF-Nzv" id="Avm-7A-hVw"/>
+                                    <outlet property="rightView" destination="2gh-Ni-A4N" id="aqO-tl-7Qc"/>
+                                    <outlet property="topView" destination="k7Z-kU-Euk" id="YkD-MT-quP"/>
+                                    <outlet property="topViewHeightLayoutConstraint" destination="C5C-0h-1BS" id="xaT-3W-QgV"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3y-MF-q3a" userLabel="Cancel Button">
                                 <rect key="frame" x="0.0" y="540" width="80" height="60"/>
@@ -281,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXF-h6-2lJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1584" y="1465.9999999999998"/>
+            <point key="canvasLocation" x="1584" y="1465"/>
         </scene>
         <!--Preview Image View Controller-->
         <scene sceneID="YdS-mn-8Yd">

@@ -59,6 +59,7 @@
 		4EBC39BB1D38E2980076B544 /* hz_select_image_item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC39B71D38E2980076B544 /* hz_select_image_item@2x.png */; };
 		4EBC39BC1D38E2980076B544 /* hz_select_image_item@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC39B81D38E2980076B544 /* hz_select_image_item@3x.png */; };
 		4ED732AF1D5869AB00A11BE3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ED732B11D5869AB00A11BE3 /* Localizable.strings */; };
+		4ED732B71D5AE62500A11BE3 /* UIImage+HZAddtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED732B61D5AE62500A11BE3 /* UIImage+HZAddtion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +149,8 @@
 		4ED732B01D5869AB00A11BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4ED732B21D5869B000A11BE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4ED732B31D5869B200A11BE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4ED732B51D5AE62500A11BE3 /* UIImage+HZAddtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HZAddtion.h"; sourceTree = "<group>"; };
+		4ED732B61D5AE62500A11BE3 /* UIImage+HZAddtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HZAddtion.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,8 @@
 				4E8E08451D3CA954008FE54E /* NSString+HZAddition.m */,
 				4EABC06F1D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.h */,
 				4EABC0701D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.m */,
+				4ED732B51D5AE62500A11BE3 /* UIImage+HZAddtion.h */,
+				4ED732B61D5AE62500A11BE3 /* UIImage+HZAddtion.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				4E40EF071D377C500033D002 /* HZAlbumEntity.m in Sources */,
 				4EBC38961D365032005EA073 /* HZPickerImageViewController.m in Sources */,
 				4E8E08421D3C74C5008FE54E /* HZLineView.m in Sources */,
+				4ED732B71D5AE62500A11BE3 /* UIImage+HZAddtion.m in Sources */,
 				4EABC0711D4224CD001B5B06 /* NSLayoutConstraint+HZAddition.m in Sources */,
 				4EBC38761D362DD3005EA073 /* DetailViewController.m in Sources */,
 				4EB341CF1D54400F009B5E60 /* HZPreViewSingleImageScrollView.m in Sources */,
@@ -602,13 +608,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 华柱 梁 (EK2EENWL4F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = HZImagePickerViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JH.HZImagePickerViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08c7f96e-6748-452f-b15d-9873fb9dabd4";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -616,13 +622,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 华柱 梁 (EK2EENWL4F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = HZImagePickerViewController/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JH.HZImagePickerViewController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "08c7f96e-6748-452f-b15d-9873fb9dabd4";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
